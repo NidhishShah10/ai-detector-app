@@ -52,8 +52,8 @@ This project uses the following data sources:
  ## 🛠️ Tech Stack
 
 ### Frontend
-React.js
+ - React.js
 
 ### Backend
- Python Flask
+ - Python Flask
 ---
