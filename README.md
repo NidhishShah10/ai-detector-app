@@ -1,4 +1,4 @@
-# AI Essay Detector & Humanizer
+# AI Essay Detector & Humanizer App
 
 ## 📌 Problem Statement
 
