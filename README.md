@@ -13,7 +13,7 @@ There is a growing need for a system that can:
 This project aims to address these challenges through a full-stack web application.
 
 ---
-- ## 🚀 Project Goals
+## 🚀 Project Goals
 
 - Build a functional full-stack AI-powered web application
 - Provide measurable AI detection results
