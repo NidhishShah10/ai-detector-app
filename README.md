@@ -48,12 +48,12 @@ This project uses the following data sources:
 ### APIs
 - Sapling AI API – AI-generated text detection
 - Anthropic Claude API – Natural language rephrasing
--
-- ## 🛠️ Tech Stack
+
+ ## 🛠️ Tech Stack
 
 ### Frontend
-- React.js
+React.js
 
 ### Backend
-- Python Flask
+ Python Flask
 ---
