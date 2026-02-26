@@ -2,9 +2,7 @@
 
 ## 📌 Problem Statement
 
-With the rapid advancement of AI writing tools, it has become increasingly difficult to distinguish between human-written content and AI generated content in academic writing. This poses challenges in academic settings where originality, authenticity, and critical thinking are crucial.
-
-This is a web app that brings together AI detection and natural language processing to detect AI written essays and rephrase them to be more human like. With the growing use of AI essay writing tools such as ChatGPT in academic and professional environments, it has become imperative to be able to detect and interpret AI written content. The web app takes in any essay or piece of text and then intelligently rephrases the detected AI written content while maintaining the original meaning but in a more natural and human like writing style.  
+With the rapid advancement of AI writing tools, it has become increasingly difficult to distinguish between human-written content and AI generated content in academic writing. This web app that brings together AI detection and natural language processing to detect AI written essays and rephrase them to be more human like. This web app takes in any essay or piece of text and then intelligently rephrases the detected AI written content while maintaining the original meaning but in a more natural and human like writing style.  
 
 This project aims to address these challenges through a full-stack web application.
 
