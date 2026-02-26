@@ -19,6 +19,7 @@ This project aims to address these challenges through a full-stack web applicati
 - Provide measurable AI detection results
 - Implement meaningful text transformation while preserving semantic content
 - Evaluate system performance using real test data
+---
 
 ## 💡 Proposed Method
 
