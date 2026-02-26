@@ -1,6 +1,2 @@
 # AI Detector App
 This is a web app that brings together AI detection and natural language processing to detect AI written essays and rephrase them to be more human like. With the growing use of AI essay writing tools such as ChatGPT in academic and professional environments, it has become imperative to be able to detect and interpret AI written content. The web app takes in any essay or piece of text and then intelligently rephrases the detected AI written content while maintaining the original meaning but in a more natural and human like writing style.
-<<<<<<< HEAD
-=======
-
->>>>>>> d848df72ee9f4219dcdbd1e9081ccb771b15a0a1
