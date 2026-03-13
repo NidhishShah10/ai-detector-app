@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from detector import detect_ai
 
 app = Flask(__name__)
 
@@ -8,7 +9,7 @@ def home():
 
     if request.method == "POST":
         essay = request.form["essay"]
-        result = f"Essay received. Length: {len(essay)} characters"
+        result = detect_ai(essay)
 
     return render_template("index.html", result=result)
 

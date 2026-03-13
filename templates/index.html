@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>AI Detector App</title>
 </head>
@@ -16,7 +17,8 @@
 </form>
 
 {% if result %}
-<p>{{ result }}</p>
+<h3>Result: {{ result.label }}</h3>
+<p>AI Probability: {{ result.score }}%</p>
 {% endif %}
 
 </body>
