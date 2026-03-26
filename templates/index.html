@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>AI Detector App</title>
 </head>
-
 <body>
 
-<h1>AI Essay Detector</h1>
+<h1>AI Essay Detector & Humanizer</h1>
 
 <form method="POST">
 <textarea name="essay" rows="10" cols="60" placeholder="Paste your essay here"></textarea>
 <br><br>
-
-<button type="submit">Analyze Essay</button>
+<button type="submit">Analyze & Humanize</button>
 </form>
 
 {% if result %}
-<h3>Result: {{ result.label }}</h3>
-<p>AI Probability: {{ result.score }}%</p>
+<h3>Original Essay:</h3>
+
+{% if result.score == result.score %}
+<p>AI Score: {{ result.score }}% — {{ result.label }}</p>
+{% else %}
+<p>Add a text to get the analysis</p>
+{% endif %}
+
+<h3>Rephrased Version:</h3>
+<p>{{ rewritten }}</p>
 {% endif %}
 
 </body>
