@@ -1,14 +1,9 @@
 import pandas as pd
 from detector import detect_ai
 
-# Dataset location
-CSV_PATH = r"C:\Users\nidhi\OneDrive\Desktop\Oakland Uni\Winter 2026\Artificial Intelligence (CSI-4130)\AI Detector App\data\ai_human.csv"
-
-# Column names
+CSV_PATH = "data/ai_human.csv"
 TEXT_COLUMN = "text"
-LABEL_COLUMN = "generated"
-
-# Number of samples to test
+LABEL_COLUMN = "label"
 MAX_SAMPLES = 10
 
 
@@ -20,11 +15,12 @@ def load_dataset():
 
 
 def evaluate():
-
     df = load_dataset()
 
     correct = 0
-    total = len(df)
+    total = 0
+    skipped = 0
+
     results = []
 
     true_human_pred_human = 0
@@ -32,19 +28,34 @@ def evaluate():
     true_ai_pred_human = 0
     true_ai_pred_ai = 0
 
-    for i, row in df.iterrows():
-
+    for _, row in df.iterrows():
         text = str(row[TEXT_COLUMN])[:2000]
         label_value = row[LABEL_COLUMN]
 
-        if label_value == 1:
+        if label_value == "AI-generated":
             true_label_str = "AI Generated"
         else:
             true_label_str = "Human Written"
 
         result = detect_ai(text)
+
+        # Skip if detector did not return a usable score
+        if result["score"] is None:
+            skipped += 1
+            print(f"[{row['id']}] Skipped: {result['label']}")
+
+            results.append({
+                "id": row["id"],
+                "true_label": true_label_str,
+                "pred_label": None,
+                "score": None,
+                "status": result["label"]
+            })
+            continue
+
         pred_label = result["label"]
         score = result["score"]
+        total += 1
 
         if pred_label == true_label_str:
             correct += 1
@@ -59,18 +70,21 @@ def evaluate():
             true_ai_pred_ai += 1
 
         results.append({
+            "id": row["id"],
             "true_label": true_label_str,
             "pred_label": pred_label,
-            "score": score
+            "score": score,
+            "status": "ok"
         })
 
-        print(f"True: {true_label_str} | Pred: {pred_label} | Score: {score:.2f}")
+        print(f"[{row['id']}] True: {true_label_str} | Pred: {pred_label} | Score: {score:.2f}")
 
-    accuracy = correct / total
+    accuracy = (correct / total) if total > 0 else 0
 
     print("\nFinal Results")
     print("-------------------")
-    print(f"Total samples: {total}")
+    print(f"Evaluated samples: {total}")
+    print(f"Skipped samples: {skipped}")
     print(f"Accuracy: {accuracy:.2%}")
 
     print("\nConfusion Matrix")
@@ -82,6 +96,7 @@ def evaluate():
 
     results_df = pd.DataFrame(results)
     results_df.to_csv("results/detection_results.csv", index=False)
+
     print("\nResults saved to results/detection_results.csv")
 
 

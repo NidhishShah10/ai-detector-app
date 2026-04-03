@@ -2,7 +2,6 @@ import requests
 import os
 from dotenv import load_dotenv
 
-# Load environment variables from .env
 load_dotenv()
 
 def detect_ai(text):
@@ -16,15 +15,24 @@ def detect_ai(text):
     }
 
     response = requests.post(url, json=payload)
-
     result = response.json()
 
-    score = result.get("score", 0)  # 0 = human, 1 = AI
+    if "msg" in result and "Rate limited" in result["msg"]:
+        return {
+            "score": 0,
+            "label": "Rate limited - please wait and try again"
+        }
+
+    score = result.get("score", 0)
+    
+    if score is None:
+        score = 0
 
     return {
-        "score": round(score * 100, 2),  # convert to percentage
+        "score": round(score * 100, 2),
         "label": "AI Generated" if score > 0.5 else "Human Written"
     }
+
 if __name__ == "__main__":
     test = "Artificial intelligence is transforming education and industry."
     print(detect_ai(test))
