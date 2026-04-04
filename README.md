@@ -64,3 +64,7 @@ The system provides two core features:
 - Custom evaluation script — 99% detection accuracy on 10 sample essays
 
 ---
+
+<img width="1297" height="814" alt="image" src="https://github.com/user-attachments/assets/da1fc1b2-4be6-478f-af36-78e16d62f71f" />
+
+---
