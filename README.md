@@ -56,7 +56,6 @@ The system provides two core features:
 ### APIs & Models
 - Sapling AI API — detection
 - Groq API — rephrasing (LLaMA 3.3 70B)
-- Hugging Face Transformers — T5 paraphrasing model (initial attempt)
 
 ### Evaluation
 - Scikit-learn — cosine similarity for rewriting analysis
